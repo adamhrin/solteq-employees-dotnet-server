@@ -14,6 +14,9 @@ namespace EmployeesApi
 {
     public class Startup
     {
+        private const string ClientDomainKey = "ClientDomain";
+        private const string DbConnectionStringKey = "DefaultConnection";
+
         public IConfiguration Configuration { get; }
 
         public Startup(IConfiguration configuration)
@@ -25,7 +28,7 @@ namespace EmployeesApi
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            var connectionString = Configuration.GetConnectionString("DefaultConnection");
+            var connectionString = Configuration.GetConnectionString(DbConnectionStringKey);
             services.AddDbContext<EmployeesDbContext>(cfg => cfg.UseSqlServer(connectionString));
             services.AddMvc().AddJsonOptions(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore); ;
             //services.AddCors();
@@ -39,7 +42,10 @@ namespace EmployeesApi
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseCors(options => options.WithOrigins("http://localhost:4200"));
+            app.UseCors(options => options
+                .WithOrigins(Configuration.GetValue<string>(ClientDomainKey))
+                .AllowAnyMethod()
+                .AllowAnyHeader());
 
             app.UseMvc();
 
