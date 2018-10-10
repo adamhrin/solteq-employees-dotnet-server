@@ -27,6 +27,8 @@ namespace EmployeesApi.Controllers
             return _context.YearSalary;
         }
 
+
+
         // GET: api/YearSalaries/2018/1
         [HttpGet("{year}/{idEmployee}")]
         public async Task<IActionResult> GetYearSalary([FromRoute] int year, [FromRoute] int idEmployee)
@@ -46,21 +48,32 @@ namespace EmployeesApi.Controllers
             return Ok(yearSalary);
         }
 
-        // PUT: api/YearSalaries/5
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutYearSalary([FromRoute] int id, [FromBody] YearSalary yearSalary)
+        // PUT: api/YearSalaries/2010/1
+        [HttpPut("{oldYear}/{idEmployee}")]
+        public async Task<IActionResult> PutYearSalary([FromRoute] int oldYear, [FromRoute] int idEmployee, [FromBody] YearSalary yearSalary)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != yearSalary.Year)
+            if (idEmployee != yearSalary.IdEmployee)
             {
                 return BadRequest();
             }
 
-            _context.Entry(yearSalary).State = EntityState.Modified;
+            // if client changed "year", create new row and delete the original row
+            // otherwise just update
+            if (oldYear != yearSalary.Year)
+            {
+                _context.YearSalary.Add(yearSalary);
+                var oldSalaryRow = await _context.YearSalary.FindAsync(oldYear, idEmployee);
+                _context.YearSalary.Remove(oldSalaryRow);
+            }
+            else
+            {
+                _context.Entry(yearSalary).State = EntityState.Modified;
+            }
 
             try
             {
@@ -68,7 +81,7 @@ namespace EmployeesApi.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!YearSalaryExists(id))
+                if (!YearSalaryExists(oldYear, idEmployee))
                 {
                     return NotFound();
                 }
@@ -78,7 +91,8 @@ namespace EmployeesApi.Controllers
                 }
             }
 
-            return NoContent();
+            // return updated data
+            return Ok(yearSalary);
         }
 
         // POST: api/YearSalaries
@@ -97,7 +111,7 @@ namespace EmployeesApi.Controllers
             }
             catch (DbUpdateException)
             {
-                if (YearSalaryExists(yearSalary.Year))
+                if (YearSalaryExists(yearSalary.Year, yearSalary.IdEmployee))
                 {
                     return new StatusCodeResult(StatusCodes.Status409Conflict);
                 }
@@ -107,19 +121,19 @@ namespace EmployeesApi.Controllers
                 }
             }
 
-            return CreatedAtAction("GetYearSalary", new { id = yearSalary.Year }, yearSalary);
+            return CreatedAtAction("GetYearSalary", new { year = yearSalary.Year, idEmployee = yearSalary.IdEmployee }, yearSalary);
         }
 
-        // DELETE: api/YearSalaries/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteYearSalary([FromRoute] int id)
+        // DELETE: api/YearSalaries/2018/1
+        [HttpDelete("{year}/{idEmployee}")]
+        public async Task<IActionResult> DeleteYearSalary([FromRoute] int year, [FromRoute] int idEmployee)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var yearSalary = await _context.YearSalary.FindAsync(id);
+            var yearSalary = await _context.YearSalary.FindAsync(year, idEmployee);
             if (yearSalary == null)
             {
                 return NotFound();
@@ -131,9 +145,9 @@ namespace EmployeesApi.Controllers
             return Ok(yearSalary);
         }
 
-        private bool YearSalaryExists(int id)
+        private bool YearSalaryExists(int year, int idEmployee)
         {
-            return _context.YearSalary.Any(e => e.Year == id);
+            return _context.YearSalary.Any(e => (e.Year == year && e.IdEmployee == idEmployee));
         }
     }
 }
