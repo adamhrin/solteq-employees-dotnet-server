@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using EmployeesApi.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EmployeesApi.Controllers
 {
@@ -21,14 +22,14 @@ namespace EmployeesApi.Controllers
         }
 
         // GET: api/Employees
-        [HttpGet]
+        [HttpGet, Authorize]
         public IEnumerable<Employee> GetEmployee()
         {
             return _context.Employee;
         }
 
         // GET: api/Employees/5
-        [HttpGet("{id}")]
+        [HttpGet("{id}"), Authorize]
         public async Task<IActionResult> GetEmployee([FromRoute] int id)
         {
             if (!ModelState.IsValid)
@@ -48,7 +49,7 @@ namespace EmployeesApi.Controllers
         }
 
         // PUT: api/Employees/5
-        [HttpPut("{id}")]
+        [HttpPut("{id}"), Authorize]
         public async Task<IActionResult> PutEmployee([FromRoute] int id, [FromBody] Employee employee)
         {
             if (!ModelState.IsValid)
@@ -83,7 +84,7 @@ namespace EmployeesApi.Controllers
         }
 
         // POST: api/Employees
-        [HttpPost]
+        [HttpPost, Authorize]
         public async Task<IActionResult> PostEmployee([FromBody] Employee employee)
         {
             if (!ModelState.IsValid)
@@ -98,7 +99,7 @@ namespace EmployeesApi.Controllers
         }
 
         // DELETE: api/Employees/5
-        [HttpDelete("{id}")]
+        [HttpDelete("{id}"), Authorize]
         public async Task<IActionResult> DeleteEmployee([FromRoute] int id)
         {
             if (!ModelState.IsValid)

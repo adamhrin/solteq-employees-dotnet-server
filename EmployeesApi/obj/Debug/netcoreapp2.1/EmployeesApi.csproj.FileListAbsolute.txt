@@ -26,3 +26,4 @@ C:\Users\Adam\solteq-assignment\code\employees-dotnet-server\solteq-employees-do
 C:\Users\Adam\solteq-assignment\code\employees-dotnet-server\solteq-employees-dotnet-server\EmployeesApi\obj\Debug\netcoreapp2.1\EmployeesApi.RazorTargetAssemblyInfo.cache
 C:\Users\Adam\solteq-assignment\code\employees-dotnet-server\solteq-employees-dotnet-server\EmployeesApi\obj\Debug\netcoreapp2.1\EmployeesApi.dll
 C:\Users\Adam\solteq-assignment\code\employees-dotnet-server\solteq-employees-dotnet-server\EmployeesApi\obj\Debug\netcoreapp2.1\EmployeesApi.pdb
+C:\Users\Adam\solteq-assignment\code\employees-dotnet-server\solteq-employees-dotnet-server\EmployeesApi\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs

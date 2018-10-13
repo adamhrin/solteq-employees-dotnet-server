@@ -1,0 +1,15 @@
+C:\Users\Adam\solteq-assignment\code\employees-dotnet-server\solteq-employees-dotnet-server\EmployeesApi\bin\Release\netcoreapp2.1\EmployeesApi.deps.json
+C:\Users\Adam\solteq-assignment\code\employees-dotnet-server\solteq-employees-dotnet-server\EmployeesApi\bin\Release\netcoreapp2.1\EmployeesApi.runtimeconfig.json
+C:\Users\Adam\solteq-assignment\code\employees-dotnet-server\solteq-employees-dotnet-server\EmployeesApi\bin\Release\netcoreapp2.1\EmployeesApi.runtimeconfig.dev.json
+C:\Users\Adam\solteq-assignment\code\employees-dotnet-server\solteq-employees-dotnet-server\EmployeesApi\bin\Release\netcoreapp2.1\EmployeesApi.dll
+C:\Users\Adam\solteq-assignment\code\employees-dotnet-server\solteq-employees-dotnet-server\EmployeesApi\bin\Release\netcoreapp2.1\EmployeesApi.pdb
+C:\Users\Adam\solteq-assignment\code\employees-dotnet-server\solteq-employees-dotnet-server\EmployeesApi\obj\Release\netcoreapp2.1\EmployeesApi.csprojAssemblyReference.cache
+C:\Users\Adam\solteq-assignment\code\employees-dotnet-server\solteq-employees-dotnet-server\EmployeesApi\obj\Release\netcoreapp2.1\EmployeesApi.csproj.CoreCompileInputs.cache
+C:\Users\Adam\solteq-assignment\code\employees-dotnet-server\solteq-employees-dotnet-server\EmployeesApi\obj\Release\netcoreapp2.1\EmployeesApi.RazorAssemblyInfo.cache
+C:\Users\Adam\solteq-assignment\code\employees-dotnet-server\solteq-employees-dotnet-server\EmployeesApi\obj\Release\netcoreapp2.1\EmployeesApi.RazorAssemblyInfo.cs
+C:\Users\Adam\solteq-assignment\code\employees-dotnet-server\solteq-employees-dotnet-server\EmployeesApi\obj\Release\netcoreapp2.1\UserSecretsAssemblyInfo.cs
+C:\Users\Adam\solteq-assignment\code\employees-dotnet-server\solteq-employees-dotnet-server\EmployeesApi\obj\Release\netcoreapp2.1\EmployeesApi.AssemblyInfoInputs.cache
+C:\Users\Adam\solteq-assignment\code\employees-dotnet-server\solteq-employees-dotnet-server\EmployeesApi\obj\Release\netcoreapp2.1\EmployeesApi.AssemblyInfo.cs
+C:\Users\Adam\solteq-assignment\code\employees-dotnet-server\solteq-employees-dotnet-server\EmployeesApi\obj\Release\netcoreapp2.1\EmployeesApi.RazorTargetAssemblyInfo.cache
+C:\Users\Adam\solteq-assignment\code\employees-dotnet-server\solteq-employees-dotnet-server\EmployeesApi\obj\Release\netcoreapp2.1\EmployeesApi.dll
+C:\Users\Adam\solteq-assignment\code\employees-dotnet-server\solteq-employees-dotnet-server\EmployeesApi\obj\Release\netcoreapp2.1\EmployeesApi.pdb
